@@ -11,13 +11,26 @@
 		private var dir: Number=1; 
 		private var cambia: Timer = new Timer(200,0);
 		private var tipos: Number; 
+		
+		private var lanza: Timer = new Timer(200,0);
 
-		public function Antagonista() {
+		public function Antagonista(){
 			// constructor code
 			addEventListener(Event.ENTER_FRAME, actualiza);
 			cambia.addEventListener(TimerEvent.TIMER, cambio_dir);
 			cambia.start(); 
+			lanzar.addEventListener(TimerEvent.TIMER, lanzar_Bala);
+			lanzar.start();
+			
 		}
+		public function lanza_Bala(e: TimerEvent){
+			
+		//(trace("Lanza Bala");
+		var Bala_nueva= new Bala(x,y);
+		stage.addChild(Bala_nueva);
+	
+	}
+	
 		public function cambio_dir(e: TimerEvent){
 			tipos=Math.floor(Math.random()*8);
 			//trace(tipos ); 
@@ -42,5 +55,7 @@
 	}
 
 	}
-	
+
 }
+	
+
