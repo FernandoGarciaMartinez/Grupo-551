@@ -1,25 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package excepcion6;
+package com.mycompany.excepcion;
 
-/**
- *
- * @author ernes
- */
-public class Excepcion6 {
+public class Excepcion {
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String[] args) {
-        Integer numero1 = null;
-        Integer numero2 = 5;
-        
-        Integer resultado = numero1 + numero2; 
-        
-        System.out.println("El resultado de la suma es: " + resultado);
+        try {
+            String text = null;
+            int length = text.length(); // Intentamos acceder a la propiedad length de un objeto nulo
+            System.out.println("101050: " + length); // Esta línea no se ejecutará si se lanza una excepción
+        } catch (NullPointerException e) {
+            System.out.println("Se produjo una excepción: " + e.getMessage());
+            e.printStackTrace();
+        }
     }
 }
